@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Hind Guntur', sans-serif;
+    background-color: #F5EDD6;
+    color: #2C1A0E;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #EDE0C0;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #E8A020;
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  /* ---- Torn paper edge ---- */
+  .torn-top {
+    position: relative;
+  }
+  .torn-top::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -18px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 20' preserveAspectRatio='none'%3E%3Cpath d='M0,0 C50,20 100,0 150,15 C200,30 250,5 300,18 C350,31 400,8 450,20 C500,32 550,2 600,16 C650,30 700,4 750,19 C800,34 850,6 900,18 C950,30 1000,3 1050,17 C1100,31 1150,7 1200,14 L1200,0 Z' fill='%23F5EDD6'/%3E%3C/svg%3E");
+    background-size: cover;
+    z-index: 10;
+  }
+
+  .torn-bottom {
+    position: relative;
+  }
+  .torn-bottom::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 20' preserveAspectRatio='none'%3E%3Cpath d='M0,20 C50,0 100,20 150,5 C200,-10 250,15 300,2 C350,-11 400,12 450,0 C500,-12 550,18 600,4 C650,-10 700,16 750,1 C800,-14 850,14 900,2 C950,-10 1000,17 1050,3 C1100,-11 1150,13 1200,6 L1200,20 Z' fill='%23F5EDD6'/%3E%3C/svg%3E");
+    background-size: cover;
+    z-index: 10;
+  }
+
+  /* ---- Stamp / badge ---- */
+  .stamp {
+    display: inline-block;
+    border: 3px solid currentColor;
+    border-radius: 4px;
+    padding: 2px 10px;
+    font-family: 'Alfa Slab One', serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    transform: rotate(-2deg);
+    box-shadow: 2px 2px 0 currentColor;
+  }
+
+  /* ---- Ticket stub card ---- */
+  .ticket-card {
+    position: relative;
+    background: #F5EDD6;
+    border: 2px solid #2C1A0E;
+    border-radius: 8px;
+    box-shadow: 4px 4px 0 #2C1A0E;
+    overflow: hidden;
+  }
+  .ticket-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: #1A6B6B;
+    border-radius: 50%;
+    margin-left: -8px;
+    z-index: 2;
+  }
+  .ticket-card::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: #1A6B6B;
+    border-radius: 50%;
+    margin-right: -8px;
+    z-index: 2;
+  }
+
+  /* ---- Notebook line background ---- */
+  .notebook-bg {
+    background-color: #FEFDF5;
+    background-image: repeating-linear-gradient(
+      transparent,
+      transparent 27px,
+      #c9d8e6 28px
+    );
+    background-attachment: local;
+  }
+
+  /* ---- Halftone overlay ---- */
+  .halftone-overlay {
+    background-image: radial-gradient(circle, rgba(0,0,0,0.12) 1px, transparent 1px);
+    background-size: 10px 10px;
+  }
+
+  /* ---- Horizontal scroll strip ---- */
+  .scroll-strip {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #E8A020 #EDE0C0;
+  }
+  .scroll-strip > * {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  /* ---- Retro button ---- */
+  .btn-retro {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Alfa Slab One', serif;
+    letter-spacing: 0.04em;
+    border: 2px solid currentColor;
+    padding: 10px 24px;
+    border-radius: 4px;
+    box-shadow: 4px 4px 0 currentColor;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .btn-retro:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 currentColor;
+  }
+  .btn-retro:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 currentColor;
+  }
+
+  /* ---- Section heading underline ---- */
+  .section-title {
+    font-family: 'Rozha One', serif;
+    position: relative;
+    display: inline-block;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    height: 4px;
+    background: #E8A020;
+    margin-top: 6px;
+    border-radius: 2px;
+    transform: rotate(-1deg);
+  }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

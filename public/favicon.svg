@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Outer badge ring -->
+  <circle cx="32" cy="32" r="30" fill="#E8A020" stroke="#2C1A0E" stroke-width="3"/>
+  <!-- Inner decoration ring -->
+  <circle cx="32" cy="32" r="26" fill="none" stroke="#2C1A0E" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <!-- "90" text in bold slab style -->
+  <text
+    x="32" y="41"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="26"
+    font-weight="900"
+    fill="#2C1A0E"
+    letter-spacing="-1"
+  >90</text>
+  <!-- Small banner ribbon top -->
+  <rect x="14" y="11" width="36" height="8" rx="2" fill="#2C1A0E"/>
+  <text
+    x="32" y="18"
+    text-anchor="middle"
+    font-family="Georgia, serif"
+    font-size="6"
+    font-weight="bold"
+    fill="#E8A020"
+    letter-spacing="1"
+  >AUTHENTIC</text>
+  <!-- Small text bottom -->
+  <text
+    x="32" y="55"
+    text-anchor="middle"
+    font-family="Georgia, serif"
+    font-size="5.5"
+    fill="#2C1A0E"
+    letter-spacing="0.5"
+  >KITCHEN</text>
+</svg>
